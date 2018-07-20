@@ -1,86 +1,108 @@
 <!DOCTYPE html>
 <html style="height: 100%">
-   <head>
-       <meta charset="utf-8">
-   </head>
-   <body style="height: 100%; margin: 0">
-       <div id="container" style="height: 100%"></div>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
-       <script type="text/javascript">
-var dom = document.getElementById("container");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
-app.title = '环形图';
 
-option = {
-          title : {
-        text: '中国外交伙伴关系等级',
-        subtext: '',
-        x:'center'
-    },
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        x: 'left',
-        data:['全天候战略合作伙伴关系','全面战略协作伙伴关系','全面战略合作伙伴关系','全面战略伙伴关系','全方位战略伙伴关系/战略合作伙伴关系','战略伙伴关系','全方位合作伙伴关系','全面合作伙伴关系','友好合作伙伴关系/重要合作伙伴关系/新型合作伙伴关系','建设性合作伙伴关系/战略互惠关系','建交关系 ']
-    },
-    series: [
-        {
-            name:'建交关系',
-            type:'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-                normal: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '30',
-                        fontWeight: 'bold'
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="//echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        app.title = '环形图';
+
+        option = {
+            title: {
+                text: '中国外交伙伴关系等级',
+                subtext: '',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['全天候战略合作伙伴关系', '全面战略协作伙伴关系', '全面战略合作伙伴关系', '全面战略伙伴关系', '全方位战略伙伴关系/战略合作伙伴关系', '战略伙伴关系', '全方位合作伙伴关系', '全面合作伙伴关系', '友好合作伙伴关系/重要合作伙伴关系/新型合作伙伴关系', '建设性合作伙伴关系/战略互惠关系', '建交关系 ']
+            },
+            series: [{
+                name: '建交关系',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
                     }
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data:[
-                {value:1, name:'全天候战略合作伙伴关系'},
-                {value:1, name:'全面战略协作伙伴关系'},
-                {value:5, name:'全面战略合作伙伴关系'},
-                {value:25, name:'全面战略伙伴关系'},
-                {value:6, name:'全方位战略伙伴关系/战略合作伙伴关系'},
-                {value:18, name:'战略伙伴关系'},
-                {value:2, name:'全方位合作伙伴关系'},
-                {value:11, name:'全面合作伙伴关系'},
-                {value:8, name:'友好合作伙伴关系/重要合作伙伴关系/新型合作伙伴关系'},
-                {value:2, name:'建设性合作伙伴关系/战略互惠关系'},
-                {value:98, name:'建交关系 '},
-                
-            ]
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                        value: 1,
+                        name: '全天候战略合作伙伴关系'
+                    }, {
+                        value: 1,
+                        name: '全面战略协作伙伴关系'
+                    }, {
+                        value: 5,
+                        name: '全面战略合作伙伴关系'
+                    }, {
+                        value: 25,
+                        name: '全面战略伙伴关系'
+                    }, {
+                        value: 6,
+                        name: '全方位战略伙伴关系/战略合作伙伴关系'
+                    }, {
+                        value: 18,
+                        name: '战略伙伴关系'
+                    }, {
+                        value: 2,
+                        name: '全方位合作伙伴关系'
+                    }, {
+                        value: 11,
+                        name: '全面合作伙伴关系'
+                    }, {
+                        value: 8,
+                        name: '友好合作伙伴关系/重要合作伙伴关系/新型合作伙伴关系'
+                    }, {
+                        value: 2,
+                        name: '建设性合作伙伴关系/战略互惠关系'
+                    }, {
+                        value: 98,
+                        name: '建交关系 '
+                    },
+
+                ]
+            }]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
         }
-    ]
-};
-;
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
-}
-       </script>
-   </body>
+    </script>
+</body>
+
 </html>
